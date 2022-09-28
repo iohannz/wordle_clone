@@ -1,4 +1,5 @@
 export const targetWords = [
+  'nigga',
   'cigar',
   'rebut',
   'sissy',
@@ -2316,6 +2317,7 @@ export const targetWords = [
   'shave',
 ];
 export const dictionary = [
+  'nigga',
   'aahed',
   'aalii',
   'aargh',
