@@ -1,23 +1,19 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Board from './components/Board';
+import GameOver from './components/GameOver';
+import Keyboard from './components/Keyboard';
 import Navbar from './components/Navbar';
-import useKey from './hooks/useKeys';
-import { setLetter } from './store';
+import useKey from './hooks/useKey';
 
 function App() {
-  const [keyVal, setKeyVal] = useState('');
-  const dispatch = useDispatch();
-  useKey((key: any) => setKeyVal(key));
-
-  useEffect(() => {
-    dispatch(setLetter(keyVal));
-  }, [keyVal]);
+  useKey();
+  const gameOver = useSelector((state: any) => state.matrix.gameOver);
 
   return (
-    <div className="App bg-white min-h-screen h-full">
+    <div className="App bg-[#121213] min-h-screen h-full">
       <Navbar />
       <Board />
+      {gameOver.gameOver ? <GameOver /> : <Keyboard />}
     </div>
   );
 }

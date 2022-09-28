@@ -1,14 +1,16 @@
+import { useEffect } from 'react';
 import Letter from './Letter';
 
 export interface RowProps {
-  row: Array<string>;
+  row: any;
+  rowIndex: number;
 }
 
-const Row = ({ row }: RowProps) => {
+const Row = ({ row, rowIndex }: RowProps) => {
   return (
-    <div className="flex justify-center gap-4 mb-4">
-      {row.map((letter, i) => (
-        <Letter key={i} letter={letter} />
+    <div className="flex justify-center gap-1 mb-1">
+      {row.map((letter: string, i: number) => (
+        <Letter key={i} letter={letter} index={i} row={rowIndex} />
       ))}
     </div>
   );
