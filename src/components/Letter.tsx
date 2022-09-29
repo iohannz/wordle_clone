@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDisabledLetters, turnShakeOff } from '../store';
 
@@ -12,6 +12,7 @@ const Letter = ({ letter, index, row }: LetterProps) => {
   const green = { backgroundColor: 'rgb(83, 141, 78)', border: 'none' };
   const yellow = { backgroundColor: 'rgb(181, 159, 59)', border: 'none' };
   const grey = { backgroundColor: 'rgb(58, 58, 60)', border: 'none' };
+
   const targetWord = useSelector((state: any) => state.matrix.targetWord);
   const currentRowIndex = useSelector((state: any) => state.matrix.currentRowIndex);
   const correct = targetWord[index] === letter;
