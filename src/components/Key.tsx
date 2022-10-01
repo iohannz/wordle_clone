@@ -20,15 +20,15 @@ const Key = ({ keyVal }: keyProps) => {
     <div
       style={disabledLetters.includes(keyVal.toLowerCase()) ? grey : {}}
       onClick={() => handleClick(keyVal)}
-      className={`${
-        keyVal === 'ENTER' || keyVal === 'BACKSPACE'
-          ? 'flex-[1.5] px-2'
-          : keyVal === ''
-          ? 'flex-[0.5] bg-transparent'
-          : 'flex-[1]'
-      }  bg-[rgb(129,131,132)] flex flex-1 flex-grow uppercase items-center text-white
-      justify-center justify-self-center mr-[6px] last-of-type:mr-0 h-[58px] rounded-[4px] hover:bg-gray-600 cursor-pointer
-       font-bold
+      className={`bg-[rgb(129,131,132)] flex flex-1 flex-grow uppercase items-center text-white hover:bg-gray-600
+      justify-center justify-self-center mr-[6px] last-of-type:mr-0 h-[58px] rounded-[4px] cursor-pointer
+       font-bold ${
+         keyVal === 'ENTER' || keyVal === 'BACKSPACE'
+           ? 'flex-[1.5] px-2'
+           : keyVal === ''
+           ? 'flex-[0.5] bg-transparent'
+           : 'flex-[1]'
+       }
       `}>
       <span>{keyVal === 'BACKSPACE' ? <FaBackspace /> : keyVal}</span>
     </div>
