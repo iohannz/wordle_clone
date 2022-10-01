@@ -31,7 +31,7 @@ const Letter = ({ letter, index, row }: LetterProps) => {
     <div
       style={currentRowIndex > row ? letterState : {}}
       onAnimationEnd={() => dispatch(turnShakeOff())}
-      className={`text-4xl uppercase font-bold p-4 w-16 h-16 border-2
+      className={`text-[2rem] leading-[2rem] uppercase font-bold p-4 w-full h-16 border-2
       border-[rgb(58,58,60)] flex items-center justify-center
       text-white ${isShaking ? 'animate-shaking-letters' : ''}`}>
       {letter}

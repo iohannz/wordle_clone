@@ -23,6 +23,9 @@ module.exports = {
       animation: {
         'shaking-letters': 'shake 250ms ease-in-out',
       },
+      fontFamily: {
+        helvetica: ['HELVETICA', 'sans-serif'],
+      },
     },
   },
   plugins: [require('daisyui')],
