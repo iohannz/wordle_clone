@@ -3,7 +3,19 @@
 @tailwind utilities;
 
 
-@font-face {
-    font-family: "HELVETICA NEUE";
-    src: url("../public/HelveticaNeue.ttc");
+@layer base {
+  html {
+    font-family: Helvetica, system-ui, sans-serif;
   }
+}
+
+:root {
+  --header-height: 40px;
+}
+
+@media (min-width: 415px) {
+  :root {
+      --header-height: 65px;
+  }
+}
+

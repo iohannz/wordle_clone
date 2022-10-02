@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { setLetter } from '../store';
+import { useSelector } from 'react-redux';
 import { FaBackspace } from 'react-icons/fa';
 
 interface keyProps {
@@ -9,26 +8,19 @@ interface keyProps {
 const Key = ({ keyVal }: keyProps) => {
   const grey = { backgroundColor: 'rgb(58, 58, 60)', border: 'none' };
   const disabledLetters = useSelector((state: any) => state.matrix.disabledLetters);
-
-  const dispatch = useDispatch();
-
-  const handleClick = (key: string) => {
-    dispatch(setLetter(key.toLowerCase()));
-  };
-
   return (
     <div
       style={disabledLetters.includes(keyVal.toLowerCase()) ? grey : {}}
-      onClick={() => handleClick(keyVal)}
-      className={`bg-[rgb(129,131,132)] flex flex-1 flex-grow uppercase items-center text-white hover:bg-gray-600
-      justify-center justify-self-center mr-[6px] last-of-type:mr-0 h-[58px] rounded-[4px] cursor-pointer
-       font-bold ${
-         keyVal === 'ENTER' || keyVal === 'BACKSPACE'
-           ? 'flex-[1.5] px-2'
-           : keyVal === ''
-           ? 'flex-[0.5] bg-transparent'
-           : 'flex-[1]'
-       }
+      className={`bg-[rgb(129,131,132)] font-helveticaRegular flex flex-1 uppercase items-center
+    text-white hover:brightness-90 justify-center justify-self-center mr-[6px]
+      last-of-type:mr-0 h-[58px] rounded-[4px] cursor-pointer
+      font-bold text-[13px] px-1 ${
+        keyVal === 'ENTER' || keyVal === 'BACKSPACE'
+          ? 'px-2 flex-[1.6] text-[12px] max-w-[65px]'
+          : keyVal === ''
+          ? 'bg-transparent flex-[0.22]'
+          : ''
+      }
       `}>
       <span>{keyVal === 'BACKSPACE' ? <FaBackspace /> : keyVal}</span>
     </div>

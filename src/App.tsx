@@ -10,14 +10,14 @@ function App() {
   const gameOver = useSelector((state: any) => state.matrix.gameOver);
 
   return (
-    <div className="App bg-[#121213] h-screen relative overflow-hidden">
+    <div className="App bg-bg-main h-screen relative overflow-hidden">
       <Navbar />
       <div
-        className="game-container w-full h-[calc(100% - 40px)]
+        className="game-container w-full
         overflow-hidden h-full bg-inherit">
         <div
           className="game w-full mx-auto flex flex-col
-          max-w-[500px] h-[calc(100%-40px)]">
+          h-[calc(100%-40px)] max-w-[500px] md:h-[calc(100%-65px)]">
           <Board />
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>

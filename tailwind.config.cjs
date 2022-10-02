@@ -5,10 +5,10 @@ module.exports = {
     extend: {
       colors: {
         'bg-main': '#121213',
-        'text-main': 'rgb(255,255,255',
-        'letter-gray': '',
-        'letter-green': 'rgb(97, 140, 85)',
-        'letter-yellow': 'rgb(177, 160, 76)',
+        'text-main': 'rgb(255,255,255)',
+      },
+      height: {
+        'header-height': 'var(--header-height)',
       },
       keyframes: {
         shake: {
@@ -24,7 +24,8 @@ module.exports = {
         'shaking-letters': 'shake 250ms ease-in-out',
       },
       fontFamily: {
-        helvetica: ['HELVETICA', 'sans-serif'],
+        helveticaRegular: ['Helvetica Neue', 'sans-serif'],
+        helveticaBold: ['Helvetica Neue', 'sans-serif'],
       },
     },
   },
