@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDisabledLetters, turnShakeOff } from '../store';
+import { setAlmostLetters, setCorrectLetters, setDisabledLetters, turnShakeOff } from '../store';
 
 interface LetterProps {
   letter: string;
@@ -23,6 +23,10 @@ const Letter = ({ letter, index, row }: LetterProps) => {
   useEffect(() => {
     if (letter !== '' && !correct && !almost) {
       dispatch(setDisabledLetters(letter));
+    } else if (letter !== '' && correct) {
+      dispatch(setCorrectLetters(letter));
+    } else if (letter !== '' && almost) {
+      dispatch(setAlmostLetters(letter));
     }
   }, [currentRowIndex]);
 

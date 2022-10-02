@@ -16,6 +16,8 @@ const initialState = {
   targetWord: targetWord,
   dictionary: dictionary,
   disabledLetters: [],
+  correctLetters: [],
+  almostLetters: [],
   gameOver: { gameOver: false, guessedWord: false },
   currWord: '',
   isShaking: false,
@@ -92,6 +94,13 @@ const matrixSlice = createSlice({
     setDisabledLetters: (state: any, action) => {
       state.disabledLetters = [...state.disabledLetters, action.payload];
     },
+    setCorrectLetters: (state: any, action) => {
+      state.correctLetters = [...state.correctLetters, action.payload];
+    },
+    setAlmostLetters: (state: any, action) => {
+      state.almostLetters = [...state.almostLetters, action.payload];
+    },
+
     turnShakeOff: (state: any) => {
       state.isShaking = false;
       console.log(state.isShaking);
@@ -99,7 +108,8 @@ const matrixSlice = createSlice({
   },
 });
 
-export const { setLetter, setDisabledLetters, turnShakeOff } = matrixSlice.actions;
+export const { setLetter, setDisabledLetters, setCorrectLetters, setAlmostLetters, turnShakeOff } =
+  matrixSlice.actions;
 
 export const store = configureStore({
   reducer: {
