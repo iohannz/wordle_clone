@@ -1,5 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FaBackspace } from 'react-icons/fa';
+import { setLetter } from '../store';
 
 interface keyProps {
   keyVal: string;
@@ -13,8 +14,11 @@ const Key = ({ keyVal }: keyProps) => {
   const disabledLetters = useSelector((state: any) => state.matrix.disabledLetters);
   const correctLetters = useSelector((state: any) => state.matrix.correctLetters);
   const almostLetters = useSelector((state: any) => state.matrix.almostLetters);
+
+  const dipsatch = useDispatch();
+
   return (
-    <div
+    <button
       style={
         disabledLetters.includes(keyVal.toLowerCase())
           ? grey
@@ -24,6 +28,7 @@ const Key = ({ keyVal }: keyProps) => {
           ? yellow
           : {}
       }
+      onClick={() => dipsatch(setLetter(keyVal.toLowerCase()))}
       className={`bg-[rgb(129,131,132)] font-helveticaRegular flex flex-1 uppercase items-center
     text-white hover:brightness-90 justify-center justify-self-center mr-[6px]
       last-of-type:mr-0 h-[58px] rounded-[4px] cursor-pointer
@@ -36,7 +41,7 @@ const Key = ({ keyVal }: keyProps) => {
       }
       `}>
       <span>{keyVal === 'BACKSPACE' ? <FaBackspace /> : keyVal}</span>
-    </div>
+    </button>
   );
 };
 

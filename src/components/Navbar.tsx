@@ -1,4 +1,7 @@
+import { useSelector } from 'react-redux';
+
 const Navbar = () => {
+  const targetWord = useSelector((state: any) => state.matrix.targetWord);
   return (
     <header
       className="flex items-center justify-center

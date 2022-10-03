@@ -20,6 +20,9 @@ function App() {
           h-[calc(100%-40px)] max-w-[500px] md:h-[calc(100%-65px)]">
           <Board />
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
+
+          {/* <Keyboard />
+          <GameOver /> */}
         </div>
       </div>
     </div>
